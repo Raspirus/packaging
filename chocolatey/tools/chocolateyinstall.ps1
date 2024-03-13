@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$fileLocation = Join-Path $toolsDir 'raspirus_1.1.2_x64_en-US.msi'
+$fileLocation = Join-Path $toolsDir 'raspirus_1.1.3_x64_en-US.msi'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
@@ -8,9 +8,9 @@ $packageArgs = @{
   fileType      = 'MSI'
   file         = $fileLocation
   softwareName  = 'raspirus'
-  checksum      = 'C0C8AE72C7FF479607C32C200193EA9103EB20C721B6C68AA054A73E4844E5A4'
+  checksum      = 'EBE46AFA16653EA721C43E4E79518C128E25AC9102BA8EE42B665F7652FF2159'
   checksumType  = 'sha256'
-  checksum64    = 'C0C8AE72C7FF479607C32C200193EA9103EB20C721B6C68AA054A73E4844E5A4'
+  checksum64    = 'EBE46AFA16653EA721C43E4E79518C128E25AC9102BA8EE42B665F7652FF2159'
   checksumType64= 'sha256'
   silentArgs    = "/qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
   validExitCodes= @(0, 3010, 1641)
