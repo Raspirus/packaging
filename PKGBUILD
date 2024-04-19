@@ -1,5 +1,5 @@
 # Maintainer: Benji377 <demetzbenjamin23@gmail.com>
-pkgname=raspirus
+pkgname=Raspirus
 pkgver=1.1.3
 pkgrel=1
 pkgdesc="User- and resources-friendly signatures-based malware scanner"
@@ -11,7 +11,7 @@ depends=('webkit2gtk' 'curl' 'wget' 'file' 'openssl' 'appmenu-gtk-module' 'gtk3'
 makedepends=('cargo' 'npm')
 backup=('etc/Raspirus/Raspirus.json')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/Raspirus/Raspirus/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=()
+sha256sums=('SKIP')
 
 prepare() {
 	cd "$pkgname-$pkgver"
