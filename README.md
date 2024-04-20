@@ -1,6 +1,10 @@
 # packaging
 Packaging instructions for Raspirus
 
+## Repositories:
+- Arch: https://aur.archlinux.org/packages/raspirus
+- Chocolatey: https://community.chocolatey.org/packages/raspirus
+
 ## Chocolatey
 - choco pack 
 - Get-ChildItem *.nupkg | ren -NewName raspirus.nupkg
@@ -22,3 +26,4 @@ Packaging instructions for Raspirus
     git push
     ```
 Extracted from: [Arch Wiki](https://wiki.archlinux.org/title/AUR_submission_guidelines)
+
