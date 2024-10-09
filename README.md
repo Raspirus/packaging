@@ -27,3 +27,14 @@ Packaging instructions for Raspirus
     ```
 Extracted from: [Arch Wiki](https://wiki.archlinux.org/title/AUR_submission_guidelines)
 
+### Docker ARCH
+- `docker build -t aur-builder .`
+- `docker run -it -v $(pwd):/home/auruser aur-builder`
+- SSH setup:
+    ```
+    sudo chown -R auruser:auruser ~/.ssh
+    chmod 700 ~/.ssh
+    chmod 600 ~/.ssh/aur
+    chmod 644 ~/.ssh/aur.pub
+    ```
+- Home perms: `sudo chown -R auruser:auruser .`
