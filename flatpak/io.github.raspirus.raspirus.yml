@@ -9,7 +9,6 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --device=dri
-  - --device=usb
   - --share=ipc
   - --share=network
   - --filesystem=host
