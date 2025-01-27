@@ -16,9 +16,9 @@ finish-args:
   - --filesystem=host
 
 build-options:
-  append-path: "/usr/lib/sdk/rust-stable/bin"
+  append-path: /usr/lib/sdk/rust-stable/bin
   env:
-    CARGO_HOME: "/run/build/rust-flatpak/cargo"
+    CARGO_HOME: /run/build/raspirus/cargo
 
 modules:
   - name: raspirus-binary
