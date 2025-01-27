@@ -9,7 +9,9 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --device=dri
+  - --device=usb
   - --share=ipc
+  - --share=network
   - --filesystem=host
 
 modules:
@@ -26,7 +28,7 @@ modules:
         only-arches: [aarch64]
       - type: git
         url: https://github.com/Raspirus/raspirus.git
-        commit: 1139961502ba8f1b79a190b989953152d1557145
+        commit: d1f9d23d209ab8be467c1f217bb6234fa9d328a2
 
     build-commands:
       - ar -x *.deb
