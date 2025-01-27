@@ -30,6 +30,15 @@ modules:
       - cargo-sources.json
 
     build-commands:
+    - |
+      # Check if the directory exists and list its contents before the cp command
+      ls -al flatpak-cargo/git/threadpool_rs-f672b27
+      if [ $? -eq 0 ]; then
+          echo "Directory exists, proceeding with cp."
+          cp -r flatpak-cargo/git/threadpool_rs-f672b27 /target/path/
+      else
+          echo "Directory does not exist!"
+      fi
       - cargo --offline fetch --manifest-path Cargo.toml --verbose
       - cargo --offline build --release --verbose
       - install -Dm755 ./target/release/raspirus -t /app/bin/
