@@ -16,5 +16,5 @@ jobs:
     - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
       with:
         bundle: raspirus.flatpak
-        manifest-path: flatpak/org.raspirus.app.yml
+        manifest-path: flatpak/io.github.raspirus.raspirus.yml
         cache-key: flatpak-builder-${{ github.sha }}
