@@ -32,7 +32,7 @@ modules:
         commit: d1f9d23d209ab8be467c1f217bb6234fa9d328a2
 
     build-commands:
-      - bsdtar -Oxf foo.deb data.tar.* | bsdtar -xf -
+      - bsdtar -Oxf raspirus.deb data.tar.* | bsdtar -xf -
       - install -Dm755 usr/bin/raspirus /app/bin/raspirus
       - install -Dm644 data/io.github.raspirus.raspirus.metainfo.xml -t /app/share/metainfo/
       - install -Dm644 data/io.github.raspirus.raspirus.desktop -t /app/share/applications/
