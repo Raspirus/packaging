@@ -17,11 +17,8 @@ finish-args:
 
 build-options:
   append-path: "/usr/lib/sdk/rust-stable/bin"
-  build-args:
-     - --share=network
   env:
     CARGO_HOME: "/run/build/rust-flatpak/cargo"
-    PKG_CONFIG_SYSROOT_DIR: "/usr/aarch64-linux-gnu/"
 
 modules:
   - name: raspirus-binary
