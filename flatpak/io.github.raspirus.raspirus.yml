@@ -26,7 +26,7 @@ modules:
         only-arches: [aarch64]
       - type: git
         url: https://github.com/Raspirus/raspirus.git
-        commit: main
+        commit: 990ab992f96be36df5cf56318d5243f6eee4052e
 
     build-commands:
       - ar -x *.deb
