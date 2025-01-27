@@ -32,8 +32,8 @@ modules:
         commit: d1f9d23d209ab8be467c1f217bb6234fa9d328a2
 
     build-commands:
-      - sudo apt-get update && sudo apt-get upgrade -y 
-      - sudo apt-get install gcc-aarch64-linux-gnu -y
+      - apt-get update && apt-get upgrade -y 
+      - apt-get install gcc-aarch64-linux-gnu -y
       - cargo fetch --manifest-path Cargo.toml --verbose
       - cargo build --release --verbose
       - install -Dm755 ./target/release/raspirus -t /app/bin/
