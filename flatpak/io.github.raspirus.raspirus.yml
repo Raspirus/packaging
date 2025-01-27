@@ -3,6 +3,8 @@ id: io.github.raspirus.raspirus
 runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
 
 command: raspirus
 finish-args:
@@ -13,27 +15,25 @@ finish-args:
   - --share=network
   - --filesystem=host
 
+build-options:
+  append-path: "/usr/lib/sdk/rust-stable/bin"
+   build-args:
+     - --share=network
+  env:
+    CARGO_HOME: "/run/build/rust-flatpak/cargo"
+
 modules:
   - name: raspirus-binary
     buildsystem: simple
     sources:
-      - type: file
-        url: https://github.com/Raspirus/raspirus/releases/download/v2.2.0/raspirus_2.2.0_amd64.deb
-        sha256: d2c2480dd14df9ec583e70e83d242245184741e29e968d44cd1541c290a25ee8
-        only-arches: [x86_64]
-        dest-filename: raspirus.deb
-      - type: file
-        url: https://github.com/Raspirus/raspirus/releases/download/v2.2.0/raspirus_2.2.0_arm64.deb
-        sha256: b323edf5716936885afee3db5fea7b1c0cf20f8fc0eed5701d418bf077c0c184
-        only-arches: [aarch64]
-        dest-filename: raspirus.deb
       - type: git
         url: https://github.com/Raspirus/raspirus.git
         commit: d1f9d23d209ab8be467c1f217bb6234fa9d328a2
 
     build-commands:
-      - bsdtar -Oxf raspirus.deb data.tar.* | bsdtar -xf -
-      - install -Dm755 usr/bin/raspirus /app/bin/raspirus
-      - install -Dm644 data/io.github.raspirus.raspirus.metainfo.xml -t /app/share/metainfo/
-      - install -Dm644 data/io.github.raspirus.raspirus.desktop -t /app/share/applications/
-      - install -Dm644 data/io.github.raspirus.raspirus.svg -t /app/share/icons/hicolor/scalable/apps/
+      - cargo fetch --manifest-path Cargo.toml --verbose
+      - cargo build --release --verbose
+      - install -Dm755 ./target/debug/raspirus -t /app/bin/
+      - install -Dm644 ./data/io.github.raspirus.raspirus.metainfo.xml -t /app/share/metainfo/
+      - install -Dm644 ./data/io.github.raspirus.raspirus.desktop -t /app/share/applications/
+      - install -Dm644 ./data/io.github.raspirus.raspirus.svg -t /app/share/icons/hicolor/scalable/apps/
